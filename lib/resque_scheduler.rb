@@ -147,6 +147,7 @@ module ResqueScheduler
   # for queueing.  Until timestamp is in the past, the job will
   # sit in the schedule list.
   def enqueue_at(timestamp, klass, *args)
+    Rails.logger.debug "AAAAA: validating klass!!"
     validate(klass)
     enqueue_at_with_queue(queue_from_class(klass), timestamp, klass, *args)
   end
